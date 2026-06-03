@@ -34,7 +34,9 @@ public class Driver {
         if (charCount <2) return false;
 
         String lastTwo = driverID.substring(8);
-        if (!lastTwo.matches("[A-Z]{2}")) return false;
+        if (!lastTwo.matches("[A-Z]{2}")) {
+            return false;
+        }
 
         return true;
     }
@@ -45,7 +47,8 @@ public class Driver {
     }
 
     public boolean validBirthdate() {
-        return birthdate.matches("\\d{2}-\\d{2}-\\d{4}");
+        boolean matches = birthdate.matches("\\d{2}-\\d{2}-\\d{4}");
+        return matches;
     }
 
     public boolean validSubmission() {
@@ -65,6 +68,13 @@ public class Driver {
         this.birthdate = newBirthdate;
 
         return true;
+    }
+
+    private boolean validLicense(String license) {
+        return license.equals("Light") ||
+                license.equals("Medium") ||
+                license.equals("Heavy") ||
+                license.equals("PublicTransport");
     }
 
     public String getDriverID() { return driverID; }
