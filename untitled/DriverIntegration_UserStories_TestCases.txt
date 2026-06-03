@@ -1,0 +1,42 @@
+DRIVER USER STORIES AND DRIVER INTEGRATION TEST CASES
+
+User Story 1. As a system administrator, I want to add a new driver to the system, so that the driver records can be stored and managed accurately.
+
+Acceptance Criteria 1. The system must allow a new driver to be added when the driver ID, name, years of experience, license type, address, and birthdate are valid.
+
+Acceptance Criteria 2. The system must reject the new driver if the driver ID does not follow the required structure or if the driver ID already exists.
+
+Acceptance Criteria 3. The system must save the valid driver information into the TXT or JSON file so that the driver can be retrieved later.
+
+User Story 2. As a system administrator, I want to retrieve an existing driver’s details, so that I can view the driver information stored in the system.
+
+Acceptance Criteria 1. The system must allow a driver record to be retrieved by using a valid existing driver ID.
+
+Acceptance Criteria 2. The system must display the correct driver information, including driver ID, name, years of experience, license type, address, and birthdate.
+
+Acceptance Criteria 3. The system must display a warning or return an appropriate result when the driver ID does not exist.
+
+User Story 3. As a system administrator, I want to update an existing driver’s details, so that driver information remains accurate and up to date.
+
+Acceptance Criteria 1. The system must allow valid editable driver details, such as address, birthdate, years of experience, and license type, to be updated.
+
+Acceptance Criteria 2. The system must not allow the driver ID or driver name to be changed during an update operation.
+
+Acceptance Criteria 3. The system must not allow the license type to be changed if the driver has more than 10 years of experience.
+
+User Story 4. As a system administrator, I want to count the number of stored drivers, so that I know how many driver records are currently saved in the system.
+
+Acceptance Criteria 1. The system must return the correct number of driver records stored in the TXT or JSON file.
+
+Acceptance Criteria 2. The driver count must increase by one after a valid new driver is added.
+
+Acceptance Criteria 3. The driver count must not increase when an invalid record or a duplicate driver record is rejected.
+
+DRIVER INTEGRATION TEST CASE TABLE
+
+| Test Cases                                                                                             | Test Data                                                                                                                                                                                                                                   | Expected Result                                                                                                                                                                               | Test Result                                         | Pass/Fail                                           |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| Add a valid driver and verify that it is stored correctly in the TXT/JSON file.                        | Driver ID: 23@@ABCDXY, Name: Andrea Stella, Years of Experience: 5, License Type: Heavy, Address: 500|Swanston Street|Melbourne|VIC|Australia, Birthdate: 04-06-1990                                                                        | The system should successfully add the driver. The driver information should be saved in the TXT/JSON file and can be retrieved later.                                                        | To be completed after running the integration test. | To be completed after running the integration test. |
+| Add an invalid driver and check that the driver is rejected.                                           | Driver ID: 12ABC, Name: Invalid Driver, Years of Experience: 3, License Type: Light, Address: 30|Bourke Street|Melbourne|VIC|Australia, Birthdate: 04-01-2000                                                                               | The system should reject the driver because the driver ID does not follow the required structure. The invalid driver should not be saved in the TXT/JSON file.                                | To be completed after running the integration test. | To be completed after running the integration test. |
+| Update an existing driver and check that the updated details are saved correctly in the TXT/JSON file. | Existing Driver ID: 24@@ABCDYZ, Original Address: 50|Swanston Street|Melbourne|VIC|Australia, Updated Address: 60|Bourke Street|Melbourne|VIC|Australia, Original License Type: Medium, Updated License Type: Heavy, Years of Experience: 5 | The system should successfully update the editable driver details. The updated address and license type should be saved in the TXT/JSON file. The driver ID and name should remain unchanged. | To be completed after running the integration test. | To be completed after running the integration test. |
+| Add valid drivers and check that the driver count is updated correctly.                                | Driver 1 ID: 30@@DCBAZZ, Driver 2 ID: 35##ABCDYY. Both drivers have valid names, years of experience, license types, addresses, and birthdates.                                                                                             | The system should store both valid drivers successfully. The driver count should return 2. If an invalid or duplicate driver is added, the count should not increase.                         | To be completed after running the integration test. | To be completed after running the integration test. |
