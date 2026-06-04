@@ -1,3 +1,4 @@
+// Driver class containing all validation logic/ conditions
 public class Driver {
     private String driverID;
     private String name;
@@ -6,6 +7,7 @@ public class Driver {
     private String address;
     private String birthdate;
 
+    // Constructor
     public Driver(String driverID, String name, int experienceYears, String licenseType, String address, String birthdate) {
 
         this.driverID = driverID;
@@ -16,12 +18,17 @@ public class Driver {
         this.birthdate = birthdate;
     }
 
+    // Validates driver ID according to condition D1
     public boolean validDriverID() {
+
+        // Must be 10 characters
         if (driverID.length() != 10) return false;
 
+        // First 2 characters must be between digits 2 and 9
         String firstTwo = driverID.substring(0, 2);
         if (!firstTwo.matches("[2-9]{2}")) return false;
 
+        // Two special characters between characters 3 and 8
         String middle = driverID.substring(2, 8);
         int charCount = 0;
 
@@ -33,6 +40,7 @@ public class Driver {
 
         if (charCount <2) return false;
 
+        // Last 2 characters must be uppercase letters A-Z
         String lastTwo = driverID.substring(8);
         if (!lastTwo.matches("[A-Z]{2}")) {
             return false;
@@ -41,27 +49,36 @@ public class Driver {
         return true;
     }
 
+    // Validates address according to condition D2
+    // Must follow format X|X|X|X|X
     public boolean validAddress() {
         String[] parts = address.split("\\|");
         return parts.length == 5;
     }
 
+    // Validates birthdate according to condition D3
+    // Must follow format DD-MM-YYYY
     public boolean validBirthdate() {
         boolean matches = birthdate.matches("\\d{2}-\\d{2}-\\d{4}");
         return matches;
     }
 
+    // Validates driver submission
     public boolean validSubmission() {
         return validDriverID() && validAddress()  && validBirthdate();
     }
 
+    // Updates details whilst enforcing conditions
     public boolean updateDetails(int newExpiry, String newLicense, String newAddress, String newBirthdate) {
 
+        // Cannot change if experience > 10 years
         if (this.experienceYears > 10 && !this.licenseType.equals(newLicense)) return false;
 
+        // Address and birthdate must remain valid
         if (!newAddress.matches(".+\\|.+\\|.+\\|.+\\|.+")) return false;
         if (!newBirthdate.matches("\\d{2}-\\d{2}-\\d{4}")) return false;
 
+        // Validates that driverID and name are not modified according to condition D5
         this.experienceYears = newExpiry;
         this.licenseType = newLicense;
         this.address = newAddress;
@@ -70,6 +87,7 @@ public class Driver {
         return true;
     }
 
+    // Validates license type against allowed vehicle types
     private boolean validLicense(String license) {
         return license.equals("Light") ||
                 license.equals("Medium") ||
@@ -77,6 +95,7 @@ public class Driver {
                 license.equals("PublicTransport");
     }
 
+    // Getters
     public String getDriverID() { return driverID; }
     public String getName() { return name; }
     public int getExperienceYears() { return experienceYears; }
