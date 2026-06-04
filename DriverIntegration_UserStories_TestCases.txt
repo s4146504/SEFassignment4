@@ -1,35 +1,24 @@
-DRIVER USER STORIES AND DRIVER INTEGRATION TEST CASES
-
 User Story 1. As a system administrator, I want to add a new driver to the system, so that the driver records can be stored and managed accurately.
-
 Acceptance Criteria 1. The system must allow a new driver to be added when the driver ID, name, years of experience, license type, address, and birthdate are valid.
-
 Acceptance Criteria 2. The system must reject the new driver if the driver ID does not follow the required structure or if the driver ID already exists.
+Acceptance Criteria 3. The system must save the valid driver information into the TXT or JSON file so that the driver record can be retrieved later.
 
-Acceptance Criteria 3. The system must save the valid driver information into the TXT or JSON file so that the driver can be retrieved later.
 
 User Story 2. As a system administrator, I want to retrieve an existing driver’s details, so that I can view the driver information stored in the system.
-
 Acceptance Criteria 1. The system must allow a driver record to be retrieved by using a valid existing driver ID.
-
 Acceptance Criteria 2. The system must display the correct driver information, including driver ID, name, years of experience, license type, address, and birthdate.
-
 Acceptance Criteria 3. The system must display a warning or return an appropriate result when the driver ID does not exist.
 
+
 User Story 3. As a system administrator, I want to update an existing driver’s details, so that driver information remains accurate and up to date.
-
-Acceptance Criteria 1. The system must allow valid editable driver details, such as address, birthdate, years of experience, and license type, to be updated.
-
+Acceptance Criteria 1. The system must allow valid editable driver details, such as address, birthdate, years of experience, and license type, to be updated when the update does not violate any driver restrictions.
 Acceptance Criteria 2. The system must not allow the driver ID or driver name to be changed during an update operation.
-
 Acceptance Criteria 3. The system must not allow the license type to be changed if the driver has more than 10 years of experience.
 
+
 User Story 4. As a system administrator, I want to count the number of stored drivers, so that I know how many driver records are currently saved in the system.
-
 Acceptance Criteria 1. The system must return the correct number of driver records stored in the TXT or JSON file.
-
 Acceptance Criteria 2. The driver count must increase by one after a valid new driver is added.
-
 Acceptance Criteria 3. The driver count must not increase when an invalid record or a duplicate driver record is rejected.
 
 DRIVER INTEGRATION TEST CASE TABLE
