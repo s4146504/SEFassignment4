@@ -53,14 +53,22 @@ public class Driver {
     // Must follow format X|X|X|X|X
     public boolean validAddress() {
         String[] parts = address.split("\\|");
-        return parts.length == 5;
+
+        if (parts.length != 5) return false;
+
+        for (String part : parts) {
+            if (part.trim().isEmpty()) return false;
+        }
+
+        return true;
     }
 
     // Validates birthdate according to condition D3
     // Must follow format DD-MM-YYYY
     public boolean validBirthdate() {
-        boolean matches = birthdate.matches("\\d{2}-\\d{2}-\\d{4}");
-        return matches;
+        return birthdate.matches("(0[1-9]|[12][0-9]|3[01])-" +
+                "(0[1-9]|1[0-2])-" +
+                "\\d{4}");
     }
 
     // Validates driver submission
