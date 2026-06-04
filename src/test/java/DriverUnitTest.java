@@ -269,6 +269,7 @@ public class DriverUnitTest {
         );
     }
 
+    // Ensures that all mutable fields are being updated
     @Test
     void otherFields_shouldUpdateCorrectly() {
         Driver d = new Driver(
