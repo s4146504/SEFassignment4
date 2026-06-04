@@ -51,7 +51,6 @@ public class BusRepository {
             return false;
         }
 
-        // Condition B5: Electric and Hybrid buses require Heavy or Public Transport license [cite: 77, 78]
         if ((newFuelType.equalsIgnoreCase("Electricity") || newFuelType.equalsIgnoreCase("Hybrid")))
         {
             String license = driver.getLicenseType();
@@ -60,7 +59,6 @@ public class BusRepository {
             }
         }
 
-        // Apply fields safely if all integration conditions pass [cite: 6]
         bus.setCapacity(newCapacity);
         bus.setFuelLevel(newFuel);
         bus.setFuelType(newFuelType);
